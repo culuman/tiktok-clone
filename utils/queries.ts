@@ -1,27 +1,27 @@
 export const allPostsQuery = () => {
   const query = `*[_type == "post"] | order(_createdAt desc){
     _id,
-     caption,
+     opis,
        video{
         asset->{
           _id,
           url
         }
       },
-      userId,
-      postedBy->{
+      korisnikId,
+      postavio->{
         _id,
-        userName,
-        image
+        korisnickoIme,
+        slika
       },
     likes,
-    comments[]{
-      comment,
+    komentari[]{
+      komentar,
       _key,
-      postedBy->{
+      postavio->{
       _id,
-      userName,
-      image
+      korisnickoIme,
+      slika
     },
     }
   }`;
@@ -32,24 +32,24 @@ export const allPostsQuery = () => {
 export const postDetailQuery = (postId: string | string[]) => {
   const query = `*[_type == "post" && _id == '${postId}']{
     _id,
-     caption,
+     opis,
        video{
         asset->{
           _id,
           url
         }
       },
-      userId,
-    postedBy->{
+      korisnikId,
+    postavio->{
       _id,
-      userName,
-      image
+      korisnickoIme,
+      slika
     },
      likes,
-    comments[]{
-      comment,
+    komentari[]{
+      komentar,
       _key,
-      postedBy->{
+      postavio->{
         _ref,
       _id,
     },
@@ -59,72 +59,71 @@ export const postDetailQuery = (postId: string | string[]) => {
 };
 
 export const searchPostsQuery = (searchTerm: string | string[]) => {
-  const query = `*[_type == "post" && caption match '${searchTerm}*' || topic match '${searchTerm}*'] {
+  const query = `*[_type == "post" && caption match '${searchTerm}*' || tema match '${searchTerm}*'] {
     _id,
-     caption,
+     opis,
        video{
         asset->{
           _id,
           url
         }
       },
-      userId,
-    postedBy->{
+      korisnikId,
+    postavio->{
       _id,
-      userName,
-      image
+      korisnickoIme,
+      slika
     },
 likes,
-    comments[]{
-      comment,
+    komentari[]{
+      komentar,
       _key,
-      postedBy->{
+      postavio->{
       _id,
-      userName,
-      image
+      korisnickoIme,
+      slika
     },
     }
   }`;
   return query;
 };
 
-export const singleUserQuery = (userId: string | string[]) => {
-  const query = `*[_type == "user" && _id == '${userId}']`;
+export const singleUserQuery = (korisnikId: string | string[]) => {
+  const query = `*[_type == "korisnik" && _id == '${korisnikId}']`;
 
   return query;
 };
 
 export const allUsersQuery = () => {
-  const query = `*[_type == "user"]`;
+  const query = `*[_type == "korisnik"]`;
 
   return query;
 };
 
-export const userCreatedPostsQuery = (userId: string | string[]) => {
-  const query = `*[ _type == 'post' && userId == '${userId}'] | order(_createdAt desc){
+export const userCreatedPostsQuery = (korisnikId: string | string[]) => {
+  const query = `*[ _type == 'post' && korisnikId == '${korisnikId}'] | order(_createdAt desc){
     _id,
-     caption,
+     opis,
        video{
         asset->{
           _id,
           url
         }
       },
-      userId,
-    postedBy->{
+      korisnikId,
+    postavio->{
       _id,
-      userName,
-      image
+      korisnickoIme,
+      slika
     },
  likes,
-
-    comments[]{
-      comment,
+    komentari[]{
+      komentar,
       _key,
-      postedBy->{
+      postavio->{
       _id,
-      userName,
-      image
+      korisnickoIme,
+      slika
     },
     }
   }`;
@@ -132,31 +131,30 @@ export const userCreatedPostsQuery = (userId: string | string[]) => {
   return query;
 };
 
-export const userLikedPostsQuery = (userId: string | string[]) => {
-  const query = `*[_type == 'post' && '${userId}' in likes[]._ref ] | order(_createdAt desc) {
+export const userLikedPostsQuery = (korisnikId: string | string[]) => {
+  const query = `*[_type == 'post' && '${korisnikId}' in likes[]._ref ] | order(_createdAt desc) {
     _id,
-     caption,
+     opis,
        video{
         asset->{
           _id,
           url
         }
       },
-      userId,
-    postedBy->{
+      korisnikId,
+    postavio->{
       _id,
-      userName,
-      image
+      korisnickoIme,
+      slika
     },
  likes,
-
-    comments[]{
-      comment,
+    komentari[]{
+      komentar,
       _key,
-      postedBy->{
+      postavio->{
       _id,
-      userName,
-      image
+      korisnickoIme,
+      slika
     },
     }
   }`;
@@ -164,31 +162,30 @@ export const userLikedPostsQuery = (userId: string | string[]) => {
   return query;
 };
 
-export const topicPostsQuery = (topic: string | string[]) => {
-  const query = `*[_type == "post" && topic match '${topic}*'] {
+export const topicPostsQuery = (tema: string | string[]) => {
+  const query = `*[_type == "post" && tema match '${tema}*'] {
     _id,
-     caption,
+     opis,
        video{
         asset->{
           _id,
           url
         }
       },
-      userId,
-    postedBy->{
+      korisnikId,
+    postavio->{
       _id,
-      userName,
-      image
+      korisnickoIme,
+      slika
     },
  likes,
-
-    comments[]{
-      comment,
+    komentari[]{
+      komentar,
       _key,
-      postedBy->{
+      postavio->{
       _id,
-      userName,
-      image
+      korisnickoIme,
+      slika
     },
     }
   }`;

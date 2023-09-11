@@ -2,13 +2,13 @@ import { BsCode, BsEmojiSunglasses } from 'react-icons/bs';
 import { GiCakeSlice, GiGalaxy, GiLipstick } from 'react-icons/gi';
 import { FaPaw, FaMedal, FaGamepad } from 'react-icons/fa';
 
-export const topics = [
+export const teme = [
   {
-    name: 'development',
+    name: 'coding',
     icon: <BsCode />,
   },
   {
-    name: 'comedy',
+    name: 'komedija',
     icon: <BsEmojiSunglasses />,
   },
   {
@@ -16,27 +16,27 @@ export const topics = [
     icon: <FaGamepad />,
   },
   {
-    name: 'food',
+    name: 'hrana',
     icon: <GiCakeSlice />,
   },
   {
-    name: 'dance',
+    name: 'ples',
     icon: <GiGalaxy />,
   },
   {
-    name: 'beauty',
+    name: 'lepota',
     icon: <GiLipstick />,
   },
   {
-    name: 'animals',
+    name: 'zivotinje',
     icon: <FaPaw />,
   },
   {
-    name: 'sports',
+    name: 'sport',
     icon: <FaMedal />,
   },
 ];
 
-export const footerList1 = ['About', 'Newsroom', 'Store', 'Contact', 'Carrers', 'ByteDance', 'Creator Directory']
-export const footerList2 = [ 'TikTik for Good','Advertise','Developers','Transparency','TikTik Rewards' ]
-export const footerList3 = [ 'Help', 'Safety', 'Terms', 'Privacy', 'Creator Portal', 'Community Guidelines' ]
+export const footerList1 = ['O TokTik', 'Vesti', 'Prodavnica', 'Kontakt', 'Karijera', 'Kreatorski direktorijum']
+export const footerList2 = [ 'Reklamiranje','Developeri','Transparentnost','TokTik nagrade' ]
+export const footerList3 = [ 'Pomoc', 'Sigurnost', 'Uslovi koriscenja', 'Privatnost', 'Kreatorski profil', 'Smernice zajednice' ]
