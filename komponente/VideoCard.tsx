@@ -30,6 +30,12 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
         }
     }
 
+    useEffect(() => {
+        if (videoRef?.current) {
+          videoRef.current.muted = isMuted;
+        }
+      }, [isMuted]);
+
   return (
     <div className="flex flex-col border-b-2 border-gray-200 pb-6">
         <div>
@@ -55,8 +61,8 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
         </div>
             <div className="lg:ml-20 flex gap-4 relative">
                 <div onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} className="rounded-3xl">
-                    <Link href="/">
-                        <video loop ref={videoRef} className="lg:w[600px] h-[300px] md:h-[400px] lg:h-[530px] w-[200px] rounded-2xl cursor-pointer bg-gray-100" src={post.video.asset.url}>
+                    <Link href={`/detalji/${post._id}`}>
+                        <video loop ref={videoRef} className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[530px] w-[200px] rounded-2xl cursor-pointer bg-gray-100" src={post.video.asset.url}>
 
                         </video>
                     </Link>
