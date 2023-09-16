@@ -55,7 +55,7 @@ const Detalji = ({ postDetails }: IProps) => {
     }
   };
 
-  const dodajKomentar = async (e) => {
+  const dodajKomentar = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if(userProfile && komentar) {
       setKomentarisanje(true);
