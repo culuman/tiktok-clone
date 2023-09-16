@@ -20,7 +20,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
 
     const videoRef = useRef<HTMLVideoElement>(null);
 
-    const onVideoPress = () => {
+    const onVideoClick = () => {
         if(playing) {
             videoRef?.current?.pause();
             setPlaying(false);
@@ -34,7 +34,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
         if (videoRef?.current) {
           videoRef.current.muted = isMuted;
         }
-      }, [isMuted]);
+    }, [isMuted]);
 
   return (
     <div className="flex flex-col border-b-2 border-gray-200 pb-6">
@@ -43,14 +43,14 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
                 <div className="md:w-16 md:h-16 w-10 h-10">
                     <Link href="/">
                         <>
-                            <Image width={62} height={62} className="rounded-full" src={post.postavio.slika} alt="Profilna slika" layout="responsive"/>
+                        <Image width={62} height={62} className="rounded-full" src={post.postavio.slika} alt="Profilna slika" layout="responsive"/>
                         </>
                     </Link>
                 </div>
                 <div>
                     <Link href="/">
-                        <div className="flex items-center gap-2 items-center md:text-md font-bold text-primary">
-                            <p className="flex gap-2 ">{post.postavio.korisnickoIme}
+                        <div className="flex items-center gap-2">
+                            <p className="flex gap-2 items-center md:text-md font-bold text-primary">{post.postavio.korisnickoIme}
                             <GoVerified className="text-blue-500 text-md" />
                             </p>
                             <p className="capitalize font-medium text-xs text-gray-500 hidden md:block">{post.postavio.korisnickoIme}</p>
@@ -70,11 +70,11 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
                     {isHover && (
                         <div className="absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[100px] md:w-[50px] p-3">
                             {playing ? (
-                               <button onClick={onVideoPress}>
+                               <button onClick={onVideoClick}>
                                     <BsFillPauseFill className="text-black text-2xl lg:text-4xl"/>
                                </button> 
                             ) : (
-                                <button onClick={onVideoPress}>
+                                <button onClick={onVideoClick}>
                                     <BsFillPlayFill className="text-black text-2xl lg:text-4xl"/>
                                 </button>
                             )}
