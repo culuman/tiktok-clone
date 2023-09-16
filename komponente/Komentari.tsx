@@ -30,7 +30,7 @@ const Komentari = ({ komentar, setKomentar, dodajKomentar, komentari, komentaris
       <div className="overflow-scroll lg:h-[475px]">
         {komentari?.length ? (
           <div>
-
+            
           </div>
         ) : (
           <NemaRezultata text="Jos uvek nema komentara"/>
