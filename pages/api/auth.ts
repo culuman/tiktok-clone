@@ -9,6 +9,5 @@ res: NextApiResponse) {
     const user = req.body;
 
     client.createIfNotExists(user).then(() => res.status(200).json('Uspesna prijava'))
-
   }
 }

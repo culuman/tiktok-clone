@@ -9,12 +9,13 @@ import { SanityAssetDocument } from 'next-sanity'
 import useAuthStore from '@/store/authStore'
 import { client } from '@/utils/client'
 import { teme } from '@/utils/constants'
+import { BASE_URL } from '@/utils'
 
 const Upload = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [videoAsset, setVideoAsset] = useState<SanityAssetDocument | undefined>();
     const [pogresanTipFajla, setPogresanTipFajla] = useState(false);
-    const [naslov, setNaslov] = useState('');
+    const [opis, setOpis] = useState('');
     const [kategorija, setKategorija] = useState(teme[0].name);
     const [cuvanje, setCuvanje] = useState(false);
 
@@ -38,12 +39,12 @@ const Upload = () => {
     }
 
     const handlePost = async () => {
-        if(naslov && videoAsset?._id && kategorija) {
+        if(opis && videoAsset?._id && kategorija) {
             setCuvanje(true);
 
             const document = {
                 _type: 'post',
-                naslov,
+                opis,
                 video: {
                     _type: 'file',
                     asset: {
@@ -59,7 +60,7 @@ const Upload = () => {
                 tema: kategorija
             }
 
-            await axios.post('http://localhost:3000/api/post', document);
+            await axios.post(`${BASE_URL}/api/post`, document);
 
             router.push('/');
         }
@@ -118,7 +119,7 @@ const Upload = () => {
             </div>
             <div className="flex flex-col gap-3 pb-10">
                 <label className="text-md font-medium">Naslov</label>
-                <input type="text" value={naslov} onChange={(e) => setNaslov(e.target.value)} className="rounded outline-none text-md border-2 border-gray-200 p-2" />
+                <input type="text" value={opis} onChange={(e) => setOpis(e.target.value)} className="rounded outline-none text-md border-2 border-gray-200 p-2" />
                 <label className="text-md font-medium">Kategorija</label>
                 <select onChange={(e) => setKategorija(e.target.value)} className="outline-none border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer">
                     {teme.map((tema) => (
