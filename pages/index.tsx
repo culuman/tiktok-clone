@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Video } from '@/types.d'
-import VideoCard from '@/komponente/VideoCard';
+import VideoCard from '@/komponente/VideoKartica';
 import NemaRezultata from '@/komponente/NemaRezultata';
 import { BASE_URL } from '@/utils';
 

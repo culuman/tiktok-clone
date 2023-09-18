@@ -41,14 +41,14 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
         <div>
             <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
                 <div className="md:w-16 md:h-16 w-10 h-10">
-                    <Link href="/">
+                    <Link href={`/profil/${post.postavio._id}`}>
                         <>
                         <Image width={62} height={62} className="rounded-full" src={post.postavio.slika} alt="Profilna slika" layout="responsive"/>
                         </>
                     </Link>
                 </div>
                 <div>
-                    <Link href="/">
+                    <Link href={`/profil/${post.postavio._id}`}>
                         <div className="flex items-center gap-2">
                             <p className="flex gap-2 items-center md:text-md font-bold text-primary">{post.postavio.korisnickoIme}
                             <GoVerified className="text-blue-500 text-md" />
