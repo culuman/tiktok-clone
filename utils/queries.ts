@@ -58,8 +58,8 @@ export const postDetailQuery = (postId: string | string[]) => {
   return query;
 };
 
-export const searchPostsQuery = (searchTerm: string | string[]) => {
-  const query = `*[_type == "post" && caption match '${searchTerm}*' || tema match '${searchTerm}*'] {
+export const searchPostsQuery = (pretragaVrednost: string | string[]) => {
+  const query = `*[_type == "post" && caption match '${pretragaVrednost}*' || tema match '${pretragaVrednost}*'] {
     _id,
      opis,
        video{

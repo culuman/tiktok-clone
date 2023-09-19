@@ -23,12 +23,23 @@ export default function Home({ videos }: IProps) {
   )
 }
 
-export const getServerSideProps = async () => {
-  const { data } = await axios.get(`${BASE_URL}/api/post`);
+export const getServerSideProps = async ({
+  query: { tema } 
+  }: {
+    query: { tema: string }
+  }) => {
 
-  return {
-    props: {
-      videos: data
-    }
+    let response = null;
+
+  if(tema) {
+    response = await axios.get(`${BASE_URL}/api/otkrijte/${tema}`);
+  } else {
+    response = await axios.get(`${BASE_URL}/api/post`);
   }
+
+    return {
+      props: {
+        videos: response.data
+      }
+    }
 }
