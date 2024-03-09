@@ -1,7 +1,7 @@
-Projekat: TikTok clone  
-Tip projekta: Seminarski rad na fakultetu  
-Grupni rad: da  
-Tehnologije: CSS, JavaScript (React), Typescript, NextJS  
+**Projekat: TikTok clone**  
+**Tip projekta: Seminarski rad na fakultetu**  
+**Grupni rad: da**  
+**Tehnologije: CSS, JavaScript (React), Typescript, NextJS**  
 
 
 
